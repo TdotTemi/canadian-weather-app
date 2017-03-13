@@ -4,12 +4,17 @@
 
 Forecast for {{ cityName }}
 <hr />
-Days: <a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">2</a> | <a href="#/forecast/5" ng-class="{ 'bg-primary': days === '5' }">5</a> | <a href="#/forecast/7" ng-class="{ 'bg-primary': days === '7' }">7</a>
+<a class="btn" href="#/forecast/2" ng-class="{ 'bg-primary': days === '2', 'btn-default' :days !== '2' }">2 Day Forecast</a> | <a class="btn" href="#/forecast/5" ng-class="{ 'bg-primary': days === '5', 'btn-default' :days !== '5' }">5 Day Forecast</a> | <a class="btn" href="#/forecast/7" ng-class="{ 'bg-primary': days === '7' , 'btn-default' :days !== '7'}">7 Day Forecast</a>
 <hr />
 <div ng-repeat="w in weatherResult.list">
-    <div class="row">
-        <div class="col-md-12">
+    <div ng-class="{ 'col-md-6': days === '2', 'col-md-4' :days == '5','col-md-2' :days == '7' }">
+        <div>
             <weather-report weather-day="w" convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt)" date-format="MMMM d, y"></weather-report>
+            <!--
+            {{w.temp.day}}
+            {{w.pressure}}
+            {{w.weather[0].description}}
+            -->
         </div>
     </div>
 </div>
