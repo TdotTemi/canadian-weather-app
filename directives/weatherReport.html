@@ -1,8 +1,18 @@
 <div class="panel panel-default">
     <div class="panel-heading">
+        <!--dt is time property in JSON-->
         <h3 class="panel-title">{{ convertToDate({ dt: weatherDay.dt }) | date: dateFormat }}</h3>
     </div>
     <div class="panel-body">
+        <!--day is day property in object temp in JSON-->
         Daytime temperature: {{ convertToStandard({ daytimeTemp: weatherDay.temp.day }) }}
+    </div>
+    <div class="panel-body">
+        <!--day is day property in object temp in JSON-->
+        Nighttime temperature: {{ convertToStandard({ daytimeTemp: weatherDay.temp.night }) }}
+    </div>
+    <div class="panel-body">
+        <!--description is in object weathers list at index 0 in JSON-->
+        Description: {{ weatherDay.weather[0].description }}
     </div>
 </div>
