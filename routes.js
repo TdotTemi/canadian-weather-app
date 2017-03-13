@@ -18,6 +18,7 @@ weatherApp.config(function ($routeProvider) {
         controller: 'forecastController'
     })
     
+    //accepts days param
     .when('/forecast/:days', {
         templateUrl: 'pages/forecast.htm',
         controller: 'forecastController'
